@@ -539,6 +539,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8; // Creates 8 columns of pizzas
   var s = 256;  // vertical distance from row above
   var totalPizzas = (vpHeight / s) * cols; // Calculate total pizzas to create
+  console.log("Total bkgrnd Pizzas: ", totalPizzas);
   for (var i = 0; i < totalPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
