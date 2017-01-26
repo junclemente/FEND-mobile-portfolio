@@ -498,11 +498,13 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
+  // requestAnimationFrame(updatePositions());
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.querySelectorAll('.mover'); // 200 items total
   for (var i = 0; i < items.length; i++) {
+  console.log(items.length);
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
@@ -522,9 +524,22 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-  for (var i = 0; i < 200; i++) {
+
+  // Get viewport height to determine total background pizzas to draw
+  var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var vpHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  // console.log("viewport height, width: ", vpHeight, vpWidth);
+
+  // If page is viewed on landscape mode, double the width and set it as vpHeight
+  // in case the viewer wants to switch to portrait mode.
+  if (vpWidth > vpHeight) {
+    vpHeight = 2 * vpWidth; 
+  }
+
+  var cols = 8; // Creates 8 columns of pizzas
+  var s = 256;  // vertical distance from row above
+  var totalPizzas = (vpHeight / s) * cols; // Calculate total pizzas to create
+  for (var i = 0; i < totalPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -534,5 +549,6 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
+  // requestAnimationFrame(updatePositions());
   updatePositions();
 });
