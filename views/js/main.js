@@ -530,8 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   var vpHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-  // If page is viewed in landscape mode, the width is set as vpHeight
-  // in case the viewer wants to switch to portrait mode.
+  // If page is viewed in landscape mode, the width is set as vpHeight in case the viewer wants to switch to portrait mode.
   if (vpWidth > vpHeight) {
     vpHeight = vpWidth; 
   }
@@ -551,6 +550,5 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  // requestAnimationFrame(updatePositions());
   updatePositions();
 });
