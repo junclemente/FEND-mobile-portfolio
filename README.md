@@ -8,7 +8,7 @@ The live site can be found here: [https://kajun.github.io/FEND-mobile-portfolio/
 
 ## Optimization
 
-Optimization of the original code is described below. The optimization resulted in a PageSpeed Insights score of *90* for mobile and *92* for desktop for **index.html**. For *pizza.html*, the javascript code was optimized to remove jank and achieve a site that runs at 60FPS.
+Optimization of the original code is described below. The optimization resulted in a PageSpeed Insights score of *92* for mobile and *94* for desktop for **index.html**. For *pizza.html*, the javascript code was optimized to remove jank and achieve a site that runs at 60FPS.
 
 ### Optimizing **index.html** to improve PageSpeeds Insights
 - The webfont "Open Sans" was removed since it was used for all text and therefore did not have any added value
