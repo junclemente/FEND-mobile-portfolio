@@ -5,6 +5,5 @@ For index.html
 - removed inline style and resized images
 
 For js/main.js
-- reduced number of background pizzas draw based on viewport size
-- added "will-change: transform" to class "movers"
-- moved var dx, newwidth outside of for loop in changePizzaSizes()
+- To optimize the side-scrolling background pizzas, the total number of pizzas drawn is dynamically determined by the available viewport. At the same time, "will-change: transform" has been added to the class "movers". 
+- To optimize "changePizzaSizes()", the for-loop has been optimized by moving "var dx and var newwidth" outside of the for-loop since the value stays the same through each iteration. Additionally, based on some research, getElementById and getElementsByClassName works more efficiently than querySelector and querySelectorAll. Therefore var windowWidth, dx, and newwidth have been changed to utilize getElementsByClassName and getElementById

@@ -529,12 +529,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get viewport height to determine total background pizzas to draw
   var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   var vpHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-  // console.log("viewport height, width: ", vpHeight, vpWidth);
 
-  // If page is viewed on landscape mode, double the width and set it as vpHeight
+  // If page is viewed in landscape mode, the width is set as vpHeight
   // in case the viewer wants to switch to portrait mode.
   if (vpWidth > vpHeight) {
-    vpHeight = 2*vpWidth; 
+    vpHeight = vpWidth; 
   }
 
   var cols = 8; // Creates 8 columns of pizzas
