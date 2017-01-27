@@ -526,7 +526,7 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Get viewport height to determine total background pizzas to draw
+  // Get viewport height  and width to determine total background pizzas to draw
   var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   var vpHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
@@ -539,7 +539,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8; // Creates 8 columns of pizzas
   var s = 256;  // vertical distance from row above
   var totalPizzas = (vpHeight / s) * cols; // Calculate total pizzas to create
-  console.log("Total bkgrnd Pizzas: ", totalPizzas);
+  // The for-loop creates 8 pizzas in a row. Once it reaches 8 pizzas, it then starts a new row.
+  // Based on the viewport height, or width, depending on which is greater will determine the total number of pizzas to be drawn. 
   for (var i = 0; i < totalPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
